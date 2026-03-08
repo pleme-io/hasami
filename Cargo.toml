@@ -1,0 +1,26 @@
+[package]
+name = "hasami"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89.0"
+description = "Hasami (鋏) — clipboard manager with timed clearing and history"
+homepage = "https://github.com/pleme-io/hasami"
+repository = "https://github.com/pleme-io/hasami"
+readme = "README.md"
+license = "MIT"
+categories = ["os"]
+keywords = ["clipboard", "paste", "history", "security"]
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+
+[dependencies]
+arboard = "3"
+tokio = { version = "1", features = ["rt", "time"] }
+tracing = "0.1"
+thiserror = "2"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt", "time", "macros", "test-util"] }
