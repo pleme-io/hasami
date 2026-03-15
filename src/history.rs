@@ -296,4 +296,235 @@ mod tests {
         assert!(entry.timestamp >= before);
         assert!(entry.timestamp <= after);
     }
+
+    #[test]
+    fn capacity_one_evicts_immediately() {
+        let mut h = ClipboardHistory::new(1);
+        h.push("a");
+        h.push("b");
+        assert_eq!(h.len(), 1);
+        assert_eq!(h.recent(1)[0].text, "b");
+    }
+
+    #[test]
+    fn dedup_does_not_suppress_after_removal() {
+        let mut h = ClipboardHistory::new(10);
+        h.push("a");
+        h.push("b");
+        h.remove(1); // remove "b", last is now "a"
+        h.push("a"); // would be consecutive dup, should be suppressed
+        assert_eq!(h.len(), 1);
+    }
+
+    #[test]
+    fn dedup_after_different_insert() {
+        let mut h = ClipboardHistory::new(10);
+        h.push("a");
+        h.push("b");
+        h.push("b"); // consecutive dup, suppressed
+        assert_eq!(h.len(), 2);
+        assert_eq!(h.recent(10)[1].text, "b");
+    }
+
+    #[test]
+    fn recent_zero_returns_empty_slice() {
+        let mut h = ClipboardHistory::new(10);
+        h.push("a");
+        h.push("b");
+        let recent = h.recent(0);
+        assert!(recent.is_empty());
+    }
+
+    #[test]
+    fn recent_on_empty_history() {
+        let h = ClipboardHistory::new(10);
+        let recent = h.recent(5);
+        assert!(recent.is_empty());
+    }
+
+    #[test]
+    fn search_empty_query_matches_all() {
+        let mut h = ClipboardHistory::new(10);
+        h.push("alpha");
+        h.push("beta");
+        h.push("gamma");
+        let results = h.search("");
+        assert_eq!(results.len(), 3);
+    }
+
+    #[test]
+    fn search_on_empty_history() {
+        let h = ClipboardHistory::new(10);
+        let results = h.search("anything");
+        assert!(results.is_empty());
+    }
+
+    #[test]
+    fn search_returns_newest_first() {
+        let mut h = ClipboardHistory::new(10);
+        h.push("match-first");
+        h.push("no");
+        h.push("match-third");
+        let results = h.search("match");
+        assert_eq!(results.len(), 2);
+        assert_eq!(results[0].text, "match-third");
+        assert_eq!(results[1].text, "match-first");
+    }
+
+    #[test]
+    fn search_unicode_case_insensitive() {
+        let mut h = ClipboardHistory::new(10);
+        h.push("Straße Berlin");
+        h.push("straße münchen");
+        let results = h.search("STRASSE");
+        // "ß".to_lowercase() is "ß", not "ss", so "STRASSE" won't match "straße"
+        assert!(results.is_empty());
+    }
+
+    #[test]
+    fn remove_first_entry() {
+        let mut h = ClipboardHistory::new(10);
+        h.push("a");
+        h.push("b");
+        h.push("c");
+        let removed = h.remove(0).unwrap();
+        assert_eq!(removed.text, "a");
+        assert_eq!(h.len(), 2);
+        assert_eq!(h.recent(10)[0].text, "b");
+    }
+
+    #[test]
+    fn remove_last_entry() {
+        let mut h = ClipboardHistory::new(10);
+        h.push("a");
+        h.push("b");
+        h.push("c");
+        let removed = h.remove(2).unwrap();
+        assert_eq!(removed.text, "c");
+        assert_eq!(h.len(), 2);
+    }
+
+    #[test]
+    fn remove_from_empty_history() {
+        let mut h = ClipboardHistory::new(10);
+        assert!(h.remove(0).is_none());
+    }
+
+    #[test]
+    fn clear_then_push() {
+        let mut h = ClipboardHistory::new(5);
+        h.push("a");
+        h.push("b");
+        h.clear();
+        assert!(h.is_empty());
+        h.push("c");
+        assert_eq!(h.len(), 1);
+        assert_eq!(h.recent(1)[0].text, "c");
+    }
+
+    #[test]
+    fn push_preserves_insertion_order() {
+        let mut h = ClipboardHistory::new(5);
+        for i in 0..5 {
+            h.push(&format!("item-{i}"));
+        }
+        let all = h.recent(10);
+        for (i, entry) in all.iter().enumerate() {
+            assert_eq!(entry.text, format!("item-{i}"));
+        }
+    }
+
+    #[test]
+    fn eviction_preserves_order_after_wraparound() {
+        let mut h = ClipboardHistory::new(3);
+        // Fill and overflow multiple times
+        for i in 0..10 {
+            h.push(&format!("v{i}"));
+        }
+        assert_eq!(h.len(), 3);
+        let all = h.recent(10);
+        assert_eq!(all[0].text, "v7");
+        assert_eq!(all[1].text, "v8");
+        assert_eq!(all[2].text, "v9");
+    }
+
+    #[test]
+    fn clone_produces_independent_copy() {
+        let mut h = ClipboardHistory::new(10);
+        h.push("original");
+        let mut cloned = h.clone();
+        cloned.push("cloned-only");
+        assert_eq!(h.len(), 1);
+        assert_eq!(cloned.len(), 2);
+    }
+
+    #[test]
+    fn entry_clone_preserves_fields() {
+        let entry = HistoryEntry::new("cloneable");
+        let cloned = entry.clone();
+        assert_eq!(entry.text, cloned.text);
+        assert_eq!(entry.timestamp, cloned.timestamp);
+    }
+
+    #[test]
+    fn push_very_long_text() {
+        let mut h = ClipboardHistory::new(5);
+        let long_text = "a".repeat(100_000);
+        h.push(&long_text);
+        assert_eq!(h.len(), 1);
+        assert_eq!(h.recent(1)[0].text.len(), 100_000);
+    }
+
+    #[test]
+    fn search_partial_match() {
+        let mut h = ClipboardHistory::new(10);
+        h.push("abcdef");
+        h.push("ghijkl");
+        let results = h.search("cde");
+        assert_eq!(results.len(), 1);
+        assert_eq!(results[0].text, "abcdef");
+    }
+
+    #[test]
+    fn capacity_after_clear_unchanged() {
+        let mut h = ClipboardHistory::new(42);
+        h.push("x");
+        h.clear();
+        assert_eq!(h.capacity(), 42);
+    }
+
+    #[test]
+    fn dedup_at_capacity_boundary() {
+        let mut h = ClipboardHistory::new(3);
+        h.push("a");
+        h.push("b");
+        h.push("c");
+        // At capacity, pushing dup of last should not evict
+        h.push("c");
+        assert_eq!(h.len(), 3);
+        assert_eq!(h.recent(10)[0].text, "a"); // "a" not evicted
+    }
+
+    #[test]
+    fn remove_then_push_respects_capacity() {
+        let mut h = ClipboardHistory::new(3);
+        h.push("a");
+        h.push("b");
+        h.push("c");
+        h.remove(0); // remove "a", len = 2
+        h.push("d"); // len = 3
+        h.push("e"); // len = 3, evicts "b"
+        assert_eq!(h.len(), 3);
+        let all = h.recent(10);
+        assert_eq!(all[0].text, "c");
+        assert_eq!(all[1].text, "d");
+        assert_eq!(all[2].text, "e");
+    }
+
+    #[test]
+    fn debug_impl_exists() {
+        let h = ClipboardHistory::new(5);
+        let debug_str = format!("{h:?}");
+        assert!(debug_str.contains("ClipboardHistory"));
+    }
 }

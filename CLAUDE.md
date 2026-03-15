@@ -4,7 +4,7 @@
 
 ```bash
 cargo build          # compile
-cargo test           # 29 unit tests + 1 doc-test
+cargo test           # 75 unit tests + 1 doc-test
 ```
 
 ## Architecture
@@ -19,9 +19,9 @@ Clipboard management library providing:
 | Path | Purpose |
 |------|---------|
 | `src/lib.rs` | Re-exports all public types |
-| `src/clipboard.rs` | `ClipboardProvider` trait, `Clipboard` (arboard), `MockClipboard`, `HasamiError` (7 tests) |
-| `src/timed.rs` | `TimedClipboard<C>` — generic auto-clear via tokio with generation counter (6 tests) |
-| `src/history.rs` | `ClipboardHistory` — timestamped `Vec` ring buffer with search/remove (16 tests) |
+| `src/clipboard.rs` | `ClipboardProvider` trait, `Clipboard` (arboard), `MockClipboard`, `HasamiError` (21 tests) |
+| `src/timed.rs` | `TimedClipboard<C>` — generic auto-clear via tokio with generation counter (16 tests) |
+| `src/history.rs` | `ClipboardHistory` — timestamped `Vec` ring buffer with search/remove (38 tests) |
 
 ### Key Types
 

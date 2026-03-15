@@ -196,4 +196,132 @@ mod tests {
         let err = HasamiError::Empty;
         assert_eq!(err.to_string(), "clipboard is empty");
     }
+
+    #[test]
+    fn mock_default_is_empty() {
+        let mock = MockClipboard::default();
+        assert!(mock.paste_text().is_err());
+    }
+
+    #[test]
+    fn mock_clone_shares_state() {
+        let mock = MockClipboard::new();
+        let clone = mock.clone();
+        mock.copy_text("shared").unwrap();
+        assert_eq!(clone.paste_text().unwrap(), "shared");
+    }
+
+    #[test]
+    fn mock_clone_clear_propagates() {
+        let mock = MockClipboard::new();
+        let clone = mock.clone();
+        mock.copy_text("to be cleared").unwrap();
+        clone.clear().unwrap();
+        assert!(mock.paste_text().is_err());
+    }
+
+    #[test]
+    fn mock_copy_empty_string_returns_empty_string() {
+        let mock = MockClipboard::new();
+        mock.copy_text("").unwrap();
+        // Empty string is stored as Some(""), which is not None,
+        // so paste_text returns Ok("")
+        assert_eq!(mock.paste_text().unwrap(), "");
+    }
+
+    #[test]
+    fn mock_copy_unicode() {
+        let mock = MockClipboard::new();
+        mock.copy_text("鋏 はさみ 🔧").unwrap();
+        assert_eq!(mock.paste_text().unwrap(), "鋏 はさみ 🔧");
+    }
+
+    #[test]
+    fn mock_copy_multiline() {
+        let mock = MockClipboard::new();
+        let multiline = "line one\nline two\nline three";
+        mock.copy_text(multiline).unwrap();
+        assert_eq!(mock.paste_text().unwrap(), multiline);
+    }
+
+    #[test]
+    fn mock_repeated_clear_is_idempotent() {
+        let mock = MockClipboard::new();
+        mock.copy_text("data").unwrap();
+        mock.clear().unwrap();
+        mock.clear().unwrap();
+        mock.clear().unwrap();
+        assert!(mock.paste_text().is_err());
+    }
+
+    #[test]
+    fn mock_copy_after_clear_works() {
+        let mock = MockClipboard::new();
+        mock.copy_text("first").unwrap();
+        mock.clear().unwrap();
+        mock.copy_text("second").unwrap();
+        assert_eq!(mock.paste_text().unwrap(), "second");
+    }
+
+    #[test]
+    fn mock_debug_impl() {
+        let mock = MockClipboard::new();
+        let debug_str = format!("{mock:?}");
+        assert!(debug_str.contains("MockClipboard"));
+    }
+
+    #[test]
+    fn mock_paste_is_non_destructive() {
+        let mock = MockClipboard::new();
+        mock.copy_text("persistent").unwrap();
+        assert_eq!(mock.paste_text().unwrap(), "persistent");
+        assert_eq!(mock.paste_text().unwrap(), "persistent");
+        assert_eq!(mock.paste_text().unwrap(), "persistent");
+    }
+
+    #[test]
+    fn mock_large_text() {
+        let mock = MockClipboard::new();
+        let large = "x".repeat(1_000_000);
+        mock.copy_text(&large).unwrap();
+        assert_eq!(mock.paste_text().unwrap().len(), 1_000_000);
+    }
+
+    #[test]
+    fn mock_thread_safety() {
+        use std::sync::Arc;
+        use std::thread;
+
+        let mock = Arc::new(MockClipboard::new());
+        let writers: Vec<_> = (0..10)
+            .map(|i| {
+                let mock = Arc::clone(&mock);
+                thread::spawn(move || {
+                    mock.copy_text(&format!("thread-{i}")).unwrap();
+                })
+            })
+            .collect();
+
+        for w in writers {
+            w.join().unwrap();
+        }
+
+        // After all threads complete, clipboard should contain one of the values
+        let text = mock.paste_text().unwrap();
+        assert!(text.starts_with("thread-"));
+    }
+
+    #[test]
+    fn error_debug_impl() {
+        let err = HasamiError::ClipboardAccess("debug test".into());
+        let debug_str = format!("{err:?}");
+        assert!(debug_str.contains("ClipboardAccess"));
+        assert!(debug_str.contains("debug test"));
+    }
+
+    #[test]
+    fn clipboard_is_send_sync() {
+        fn assert_send_sync<T: Send + Sync>() {}
+        assert_send_sync::<Clipboard>();
+    }
 }
