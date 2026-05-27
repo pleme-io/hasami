@@ -64,6 +64,28 @@
           "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))"
         },
         {
+          "name": "image",
+          "package_key": "image-0.25.9",
+          "kind": "normal",
+          "features": [
+            "png"
+          ],
+          "uses_default_features": false,
+          "optional": true,
+          "target": "cfg(windows)"
+        },
+        {
+          "name": "image",
+          "package_key": "image-0.25.9",
+          "kind": "normal",
+          "features": [
+            "png"
+          ],
+          "uses_default_features": false,
+          "optional": true,
+          "target": "cfg(target_os = \"macos\")"
+        },
+        {
           "name": "objc2",
           "package_key": "objc2-0.6.4",
           "kind": "normal",
@@ -120,6 +142,28 @@
           "uses_default_features": false,
           "optional": true,
           "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))"
+        },
+        {
+          "name": "image",
+          "package_key": "image-0.25.9",
+          "kind": "normal",
+          "features": [
+            "png"
+          ],
+          "uses_default_features": false,
+          "optional": true,
+          "target": "cfg(windows)"
+        },
+        {
+          "name": "image",
+          "package_key": "image-0.25.9",
+          "kind": "normal",
+          "features": [
+            "png"
+          ],
+          "uses_default_features": false,
+          "optional": true,
+          "target": "cfg(target_os = \"macos\")"
         },
         {
           "name": "objc2",
@@ -632,6 +676,18 @@
           "uses_default_features": false,
           "optional": true,
           "target": null
+        },
+        {
+          "name": "miniz_oxide",
+          "package_key": "miniz_oxide-0.8.9",
+          "kind": "normal",
+          "features": [
+            "with-alloc",
+            "simd"
+          ],
+          "uses_default_features": false,
+          "optional": true,
+          "target": "cfg(all(target_arch = \"wasm32\", not(target_os = \"emscripten\")))"
         }
       ],
       "runtime_dependencies": [
@@ -655,6 +711,18 @@
           "uses_default_features": false,
           "optional": true,
           "target": null
+        },
+        {
+          "name": "miniz_oxide",
+          "package_key": "miniz_oxide-0.8.9",
+          "kind": "normal",
+          "features": [
+            "with-alloc",
+            "simd"
+          ],
+          "uses_default_features": false,
+          "optional": true,
+          "target": "cfg(all(target_arch = \"wasm32\", not(target_os = \"emscripten\")))"
         }
       ],
       "build_dependencies": [],
@@ -3029,6 +3097,15 @@
           "uses_default_features": true,
           "optional": false,
           "target": null
+        },
+        {
+          "name": "zerocopy_derive",
+          "package_key": "zerocopy-derive-0.8.40",
+          "kind": "normal",
+          "features": [],
+          "uses_default_features": true,
+          "optional": false,
+          "target": "cfg(any())"
         }
       ],
       "runtime_dependencies": [
@@ -3040,11 +3117,24 @@
           "uses_default_features": true,
           "optional": false,
           "target": null
+        },
+        {
+          "name": "zerocopy_derive",
+          "package_key": "zerocopy-derive-0.8.40",
+          "kind": "normal",
+          "features": [],
+          "uses_default_features": true,
+          "optional": false,
+          "target": "cfg(any())"
         }
       ],
       "build_dependencies": [],
       "crate_renames": {
         "zerocopy-derive": [
+          {
+            "version": "0.8.40",
+            "rename": "zerocopy_derive"
+          },
           {
             "version": "0.8.40",
             "rename": "zerocopy_derive"
