@@ -224,9 +224,9 @@ rec {
       };
       "autocfg" = rec {
         crateName = "autocfg";
-        version = "1.5.0";
+        version = "1.5.1";
         edition = "2015";
-        sha256 = "1s77f98id9l4af4alklmzq46f21c980v13z2r1pcxx6bqgw0d1n0";
+        sha256 = "0lqasy5i30flcgih1b50kvsk6z32g09r1q4ql7q81pj6228jy0zj";
         authors = [
           "Josh Stone <cuviper@gmail.com>"
         ];
@@ -234,9 +234,9 @@ rec {
       };
       "bitflags" = rec {
         crateName = "bitflags";
-        version = "2.11.0";
+        version = "2.13.0";
         edition = "2021";
-        sha256 = "1bwjibwry5nfwsfm9kjg2dqx5n5nja9xymwbfl6svnn8jsz6ff44";
+        sha256 = "1y239gpvl061rfvav7jds8mjs42kmwi39is7yx5d1qw3hvp8nf5l";
         authors = [
           "The Rust Project Developers"
         ];
@@ -437,45 +437,15 @@ rec {
       };
       "fax" = rec {
         crateName = "fax";
-        version = "0.2.6";
+        version = "0.2.7";
         edition = "2018";
-        sha256 = "1ax0jmvsszxd03hj6ga1kyl7gaqcfw0akg2wf0q6gk9pizaffpgh";
+        sha256 = "0nmc65jjdym0f7lr4qm2q7awz1p5arm8i19wv1cmsg92cfahgwfa";
         authors = [
           "Sebastian K <s3bk@protonmail.com>"
-        ];
-        dependencies = [
-          {
-            name = "fax_derive";
-            packageId = "fax_derive";
-          }
         ];
         features = {
+          "generate_bitmaps" = [ "dep:fax_derive" ];
         };
-      };
-      "fax_derive" = rec {
-        crateName = "fax_derive";
-        version = "0.2.0";
-        edition = "2018";
-        sha256 = "0zap434zz4xvi5rnysmwzzivig593b4ng15vwzwl7js2nw7s3b50";
-        procMacro = true;
-        authors = [
-          "Sebastian K <s3bk@protonmail.com>"
-        ];
-        dependencies = [
-          {
-            name = "proc-macro2";
-            packageId = "proc-macro2";
-          }
-          {
-            name = "quote";
-            packageId = "quote";
-          }
-          {
-            name = "syn";
-            packageId = "syn";
-          }
-        ];
-
       };
       "fdeflate" = rec {
         crateName = "fdeflate";
@@ -612,7 +582,7 @@ rec {
       };
       "hasami" = rec {
         crateName = "hasami";
-        version = "0.1.1";
+        version = "0.1.2";
         edition = "2024";
         src = lib.cleanSourceWith { filter = sourceFilter;  src = ./.; };
         dependencies = [
@@ -645,9 +615,9 @@ rec {
       };
       "image" = rec {
         crateName = "image";
-        version = "0.25.9";
+        version = "0.25.10";
         edition = "2021";
-        sha256 = "06lwa4ag3zcmjzivl356q0qhgxxqpkp7qwda7x0mjrkq21n6ql76";
+        sha256 = "0131b9fsd5grxf3lchfs2ci0rg8ga2mh1ygai7k2zh1k8cwq1aw5";
         authors = [
           "The image-rs Developers"
         ];
@@ -702,9 +672,9 @@ rec {
       };
       "libc" = rec {
         crateName = "libc";
-        version = "0.2.182";
+        version = "0.2.186";
         edition = "2021";
-        sha256 = "04k1w1mq9f4cxv520dbr5xw1i7xkbc9fcrvaggyjy25jdkdvl038";
+        sha256 = "0rnyhzjyqq9x56skkllbjzzzwym3r61lq3l4hqj64v71gw0r3av8";
         authors = [
           "The Rust Project Developers"
         ];
@@ -756,9 +726,9 @@ rec {
       };
       "log" = rec {
         crateName = "log";
-        version = "0.4.29";
+        version = "0.4.32";
         edition = "2021";
-        sha256 = "15q8j9c8g5zpkcw0hnd6cf2z7fxqnvsjh3rw5mv5q10r83i34l2y";
+        sha256 = "0fmdg0cxig7i4fwf1sw7fmg4d1gdbfzniawcfpwydy1q7320fgwm";
         authors = [
           "The Rust Project Developers"
         ];
@@ -813,9 +783,9 @@ rec {
       };
       "moxcms" = rec {
         crateName = "moxcms";
-        version = "0.7.11";
+        version = "0.8.1";
         edition = "2024";
-        sha256 = "15qa5znj029i7677l0hdv0lwmjggrg920bhjgs3cjvydb72mg5dc";
+        sha256 = "0jz4fd5f7pdn1rngqc96lxriqjkym1lswdhdbjr037s8p9ac31dv";
         authors = [
           "Radzivon Bartoshyk"
         ];
@@ -830,9 +800,25 @@ rec {
           }
         ];
         features = {
-          "default" = [ "avx" "sse" "neon" ];
+          "any_to_any" = [ "lut" ];
+          "avx512_shaper_fixed_point_paths" = [ "avx512" ];
+          "avx512_shaper_optimized_paths" = [ "avx512" ];
+          "avx_luts" = [ "lut" "avx" ];
+          "avx_shaper_fixed_point_paths" = [ "avx" ];
+          "avx_shaper_optimized_paths" = [ "avx" ];
+          "avx_shaper_paths" = [ "avx" ];
+          "default" = [ "avx_shaper_paths" "sse_shaper_paths" "neon_shaper_paths" "avx_shaper_fixed_point_paths" "avx_luts" "sse_shaper_fixed_point_paths" "sse_luts" "neon_shaper_fixed_point_paths" "neon_luts" "lut" ];
+          "neon_luts" = [ "lut" "neon" ];
+          "neon_shaper_fixed_point_paths" = [ "neon" ];
+          "neon_shaper_optimized_paths" = [ "neon" ];
+          "neon_shaper_paths" = [ "neon" ];
+          "options" = [ "lut" ];
+          "sse_luts" = [ "lut" "sse" ];
+          "sse_shaper_fixed_point_paths" = [ "sse" ];
+          "sse_shaper_optimized_paths" = [ "sse" ];
+          "sse_shaper_paths" = [ "sse" ];
         };
-        resolvedDefaultFeatures = [ "avx" "default" "neon" "sse" ];
+        resolvedDefaultFeatures = [ "avx" "avx_luts" "avx_shaper_fixed_point_paths" "avx_shaper_paths" "default" "lut" "neon" "neon_luts" "neon_shaper_fixed_point_paths" "neon_shaper_paths" "sse" "sse_luts" "sse_shaper_fixed_point_paths" "sse_shaper_paths" ];
       };
       "num-traits" = rec {
         crateName = "num-traits";
@@ -1530,9 +1516,9 @@ rec {
       };
       "once_cell" = rec {
         crateName = "once_cell";
-        version = "1.21.3";
+        version = "1.21.4";
         edition = "2021";
-        sha256 = "0b9x77lb9f1j6nqgf5aka4s2qj0nly176bpbrv6f9iakk5ff3xa2";
+        sha256 = "0l1v676wf71kjg2khch4dphwh1jp3291ffiymr2mvy1kxd5kwz4z";
         authors = [
           "Aleksey Kladov <aleksey.kladov@gmail.com>"
         ];
@@ -1695,9 +1681,9 @@ rec {
       };
       "pxfm" = rec {
         crateName = "pxfm";
-        version = "0.1.28";
+        version = "0.1.29";
         edition = "2024";
-        sha256 = "17bbi6r9jiz9rmlj9zwjcf3qrivr33l8vwjmj9y812ysagkl385m";
+        sha256 = "0gvfd9r73i2mqf1cdc2y5yf0m0skhc16a5aglxiwsv2c57swrig0";
         authors = [
           "Radzivon Bartoshyk"
         ];
@@ -1879,9 +1865,9 @@ rec {
       };
       "simd-adler32" = rec {
         crateName = "simd-adler32";
-        version = "0.3.8";
+        version = "0.3.9";
         edition = "2018";
-        sha256 = "18lx2gdgislabbvlgw5q3j5ssrr77v8kmkrxaanp3liimp2sc873";
+        sha256 = "0532ysdwcvzyp2bwpk8qz0hijplcdwpssr5gy5r7qwqqy5z5qgbh";
         libName = "simd_adler32";
         authors = [
           "Marvin Countryman <me@maar.vin>"
@@ -1893,9 +1879,9 @@ rec {
       };
       "smallvec" = rec {
         crateName = "smallvec";
-        version = "1.15.1";
+        version = "1.15.2";
         edition = "2018";
-        sha256 = "00xxdxxpgyq5vjnpljvkmy99xij5rxgh913ii1v16kzynnivgcb7";
+        sha256 = "143wzbqf6vgapdp2z4qpl0yvlqcn17s8cnk8m28rqly808zsdmlf";
         authors = [
           "The Servo Project Developers"
         ];
@@ -1990,9 +1976,9 @@ rec {
       };
       "tiff" = rec {
         crateName = "tiff";
-        version = "0.10.3";
+        version = "0.11.3";
         edition = "2021";
-        sha256 = "0vrkdk9cdk07rh7iifcxpn6m8zv3wz695mizhr8rb3gfgzg0b5mg";
+        sha256 = "0lmw68ic77sixk17r4rl2vsv00rqhja3yj2h9p5bcd9x6krylgxn";
         authors = [
           "The image-rs Developers"
         ];
@@ -2033,15 +2019,16 @@ rec {
           "fax" = [ "dep:fax34" ];
           "jpeg" = [ "dep:zune-jpeg" ];
           "lzw" = [ "dep:weezl" ];
+          "webp" = [ "dep:image-webp" ];
           "zstd" = [ "dep:zstd" ];
         };
         resolvedDefaultFeatures = [ "default" "deflate" "fax" "jpeg" "lzw" ];
       };
       "tokio" = rec {
         crateName = "tokio";
-        version = "1.50.0";
+        version = "1.52.3";
         edition = "2021";
-        sha256 = "0bc2c5kd57p2xd4l6hagb0bkrp798k5vw0f3xzzwy0sf6ws5xb97";
+        sha256 = "1zpzazypkg61sw91na1m85x5s4rsjym335fwwhwm1hcs70dz1iwg";
         authors = [
           "Tokio Contributors <team@tokio.rs>"
         ];
@@ -2081,9 +2068,9 @@ rec {
       };
       "tokio-macros" = rec {
         crateName = "tokio-macros";
-        version = "2.6.1";
+        version = "2.7.0";
         edition = "2021";
-        sha256 = "172nwz3s7mmh266hb8l5xdnc7v9kqahisppqhinfd75nz3ps4maw";
+        sha256 = "15m4f37mdafs0gg36sh0rskm1i768lb7zmp8bw67kaxr3avnqniq";
         procMacro = true;
         libName = "tokio_macros";
         authors = [
@@ -2974,9 +2961,9 @@ rec {
       };
       "zerocopy" = rec {
         crateName = "zerocopy";
-        version = "0.8.40";
+        version = "0.8.52";
         edition = "2021";
-        sha256 = "1r9j2mlb54q1l9pgall3mk0gg6cprhdncvbbgsgxnxmmj3jcd2d7";
+        sha256 = "0gv563swc1yn3k8w3wjj07a8q293rkx99nfp3a25vzzmbycj446f";
         authors = [
           "Joshua Liebow-Feeser <joshlf@google.com>"
           "Jack Wrenn <jswrenn@amazon.com>"
@@ -3010,9 +2997,9 @@ rec {
       };
       "zerocopy-derive" = rec {
         crateName = "zerocopy-derive";
-        version = "0.8.40";
+        version = "0.8.52";
         edition = "2021";
-        sha256 = "0lsrhg5nvf0c40z644a014l2nrvh7xw0ff3i9744k9vif2d4hp7n";
+        sha256 = "0c3rhsh4sd9kdym4z55zprybjkydy9y2gvw75d72aapcfa5z7rqs";
         procMacro = true;
         libName = "zerocopy_derive";
         authors = [
@@ -3045,9 +3032,9 @@ rec {
       };
       "zune-core" = rec {
         crateName = "zune-core";
-        version = "0.4.12";
+        version = "0.5.1";
         edition = "2021";
-        sha256 = "0jj1ra86klzlcj9aha9als9d1dzs7pqv3azs1j3n96822wn3lhiz";
+        sha256 = "1ya0zdqxlr5v57791j7bvm408ri2cfx81a4v6z85f560yw3hi2nb";
         libName = "zune_core";
         features = {
           "log" = [ "dep:log" ];
@@ -3057,9 +3044,9 @@ rec {
       };
       "zune-jpeg" = rec {
         crateName = "zune-jpeg";
-        version = "0.4.21";
+        version = "0.5.15";
         edition = "2021";
-        sha256 = "04r7g6y9jp7d4c9bq23rz3gwzlr1dsl7vdk4yly35bc4jf52rki9";
+        sha256 = "15kjpn6pywxlwb8w5irfd68x31wi3mb4y1da8bqh7havh5drvg17";
         libName = "zune_jpeg";
         authors = [
           "caleb <etemesicaleb@gmail.com>"
