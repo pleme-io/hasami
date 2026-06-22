@@ -30,6 +30,22 @@ impl From<arboard::Error> for HasamiError {
     }
 }
 
+/// A raw bitmap image read from the system clipboard.
+///
+/// Pixels are tightly-packed **RGBA8** (`width * height * 4` bytes), the
+/// format `arboard` normalises every platform's clipboard image into.
+/// Callers that need an encoded image (PNG, etc.) own that step — this
+/// type is the unencoded clipboard datum, nothing more.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ClipboardImage {
+    /// Image width in pixels.
+    pub width: usize,
+    /// Image height in pixels.
+    pub height: usize,
+    /// Tightly-packed RGBA8 pixels (`width * height * 4` bytes).
+    pub rgba: Vec<u8>,
+}
+
 /// Trait abstracting clipboard read/write/clear operations.
 ///
 /// Implementations must be thread-safe (`Send + Sync`) so they can be
@@ -40,6 +56,25 @@ pub trait ClipboardProvider: Send + Sync {
 
     /// Read the current text from the clipboard.
     fn paste_text(&self) -> Result<String, HasamiError>;
+
+    /// Read the current image from the clipboard as raw RGBA8.
+    ///
+    /// Returns [`HasamiError::Empty`] when the clipboard holds no image
+    /// (the common case — e.g. it holds text, or is empty), so callers
+    /// can cheaply probe "is there an image?" and fall back to text.
+    ///
+    /// The default implementation reports no image, so providers that
+    /// don't support images (or platforms without image clipboards)
+    /// stay correct without overriding it.
+    ///
+    /// # Errors
+    ///
+    /// [`HasamiError::Empty`] when no image is present;
+    /// [`HasamiError::ClipboardAccess`] when the clipboard could not be
+    /// read or its image could not be decoded.
+    fn paste_image(&self) -> Result<ClipboardImage, HasamiError> {
+        Err(HasamiError::Empty)
+    }
 
     /// Clear the clipboard contents.
     fn clear(&self) -> Result<(), HasamiError>;
@@ -84,6 +119,30 @@ impl ClipboardProvider for Clipboard {
         Ok(text)
     }
 
+    fn paste_image(&self) -> Result<ClipboardImage, HasamiError> {
+        let mut cb = self.inner.lock().expect("clipboard mutex poisoned");
+        match cb.get_image() {
+            Ok(img) => {
+                tracing::debug!(
+                    width = img.width,
+                    height = img.height,
+                    "read image from clipboard"
+                );
+                Ok(ClipboardImage {
+                    width: img.width,
+                    height: img.height,
+                    rgba: img.bytes.into_owned(),
+                })
+            }
+            // No image on the clipboard is the overwhelmingly common
+            // case (it holds text, or is empty) — map it to the typed
+            // `Empty` so callers fall back to text without it reading as
+            // a hard clipboard failure.
+            Err(arboard::Error::ContentNotAvailable) => Err(HasamiError::Empty),
+            Err(e) => Err(HasamiError::from(e)),
+        }
+    }
+
     fn clear(&self) -> Result<(), HasamiError> {
         let mut cb = self.inner.lock().expect("clipboard mutex poisoned");
         cb.clear()?;
@@ -99,6 +158,7 @@ impl ClipboardProvider for Clipboard {
 #[derive(Debug, Clone)]
 pub struct MockClipboard {
     contents: Arc<Mutex<Option<String>>>,
+    image: Arc<Mutex<Option<ClipboardImage>>>,
 }
 
 impl MockClipboard {
@@ -107,7 +167,14 @@ impl MockClipboard {
     pub fn new() -> Self {
         Self {
             contents: Arc::new(Mutex::new(None)),
+            image: Arc::new(Mutex::new(None)),
         }
+    }
+
+    /// Seed a clipboard image so consumers can exercise the
+    /// [`ClipboardProvider::paste_image`] path without a real clipboard.
+    pub fn set_image(&self, image: ClipboardImage) {
+        *self.image.lock().expect("mock image mutex poisoned") = Some(image);
     }
 }
 
@@ -129,9 +196,15 @@ impl ClipboardProvider for MockClipboard {
         guard.clone().ok_or(HasamiError::Empty)
     }
 
+    fn paste_image(&self) -> Result<ClipboardImage, HasamiError> {
+        let guard = self.image.lock().expect("mock image mutex poisoned");
+        guard.clone().ok_or(HasamiError::Empty)
+    }
+
     fn clear(&self) -> Result<(), HasamiError> {
         let mut guard = self.contents.lock().expect("mock mutex poisoned");
         *guard = None;
+        *self.image.lock().expect("mock image mutex poisoned") = None;
         Ok(())
     }
 }
@@ -146,6 +219,41 @@ mod tests {
         mock.copy_text("hello hasami").unwrap();
         let text = mock.paste_text().unwrap();
         assert_eq!(text, "hello hasami");
+    }
+
+    #[test]
+    fn mock_paste_image_returns_seeded_image() {
+        let mock = MockClipboard::new();
+        // No image yet → typed Empty (so a consumer falls back to text).
+        assert!(matches!(mock.paste_image(), Err(HasamiError::Empty)));
+        let img = ClipboardImage {
+            width: 2,
+            height: 1,
+            rgba: vec![255, 0, 0, 255, 0, 255, 0, 255],
+        };
+        mock.set_image(img.clone());
+        assert_eq!(mock.paste_image().unwrap(), img);
+    }
+
+    #[test]
+    fn mock_clear_drops_image_too() {
+        let mock = MockClipboard::new();
+        mock.set_image(ClipboardImage { width: 1, height: 1, rgba: vec![1, 2, 3, 4] });
+        mock.clear().unwrap();
+        assert!(matches!(mock.paste_image(), Err(HasamiError::Empty)));
+    }
+
+    #[test]
+    fn paste_image_default_reports_empty() {
+        // A provider that doesn't override paste_image reports "no
+        // image" rather than failing to compile or panicking.
+        struct TextOnly;
+        impl ClipboardProvider for TextOnly {
+            fn copy_text(&self, _: &str) -> Result<(), HasamiError> { Ok(()) }
+            fn paste_text(&self) -> Result<String, HasamiError> { Err(HasamiError::Empty) }
+            fn clear(&self) -> Result<(), HasamiError> { Ok(()) }
+        }
+        assert!(matches!(TextOnly.paste_image(), Err(HasamiError::Empty)));
     }
 
     #[test]

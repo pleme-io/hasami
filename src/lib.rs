@@ -31,6 +31,6 @@ pub mod clipboard;
 pub mod history;
 pub mod timed;
 
-pub use clipboard::{Clipboard, ClipboardProvider, HasamiError, MockClipboard};
+pub use clipboard::{Clipboard, ClipboardImage, ClipboardProvider, HasamiError, MockClipboard};
 pub use history::{ClipboardHistory, HistoryEntry};
 pub use timed::TimedClipboard;
