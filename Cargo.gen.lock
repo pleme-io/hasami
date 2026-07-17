@@ -1,0 +1,3916 @@
+{
+  "schema_version": 1,
+  "cargo_lock_sha256": "5fd6bfde1e30724bb97fd56acfa83b7aa2de350bcd21a589c0c500c1d6d083e0",
+  "target_resolves": {
+    "base": {
+      "adler2-2.0.1": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "autocfg-1.5.1": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "bitflags-2.13.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "std"
+        ]
+      },
+      "bytemuck-1.25.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "extern_crate_alloc"
+        ]
+      },
+      "byteorder-lite-0.1.0": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "cfg-if-1.0.4": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "crc32fast-1.5.0": {
+        "runtime_dependencies": [
+          {
+            "name": "cfg_if",
+            "package_key": "cfg-if-1.0.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "fax-0.2.7": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "fdeflate-0.3.7": {
+        "runtime_dependencies": [
+          {
+            "name": "simd_adler32",
+            "package_key": "simd-adler32-0.3.9",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "flate2-1.1.9": {
+        "runtime_dependencies": [
+          {
+            "name": "crc32fast",
+            "package_key": "crc32fast-1.5.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "miniz_oxide",
+            "package_key": "miniz_oxide-0.8.9",
+            "kind": "normal",
+            "features": [
+              "simd",
+              "with-alloc"
+            ],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "miniz_oxide",
+            "package_key": "miniz_oxide-0.8.9",
+            "kind": "normal",
+            "features": [
+              "simd",
+              "with-alloc"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": "cfg(all(target_arch = \"wasm32\", not(target_os = \"emscripten\")))",
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "any_impl",
+          "default",
+          "miniz_oxide",
+          "rust_backend"
+        ]
+      },
+      "half-2.7.1": {
+        "runtime_dependencies": [
+          {
+            "name": "cfg_if",
+            "package_key": "cfg-if-1.0.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zerocopy",
+            "package_key": "zerocopy-0.8.52",
+            "kind": "normal",
+            "features": [
+              "derive",
+              "simd"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "default",
+          "std"
+        ]
+      },
+      "hasami-0.1.2": {
+        "runtime_dependencies": [
+          {
+            "name": "arboard",
+            "package_key": "arboard-3.6.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "thiserror",
+            "package_key": "thiserror-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tokio",
+            "package_key": "tokio-1.52.3",
+            "kind": "normal",
+            "features": [
+              "rt",
+              "time"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing",
+            "package_key": "tracing-0.1.44",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "image-0.25.10": {
+        "runtime_dependencies": [
+          {
+            "name": "bytemuck",
+            "package_key": "bytemuck-1.25.0",
+            "kind": "normal",
+            "features": [
+              "extern_crate_alloc"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "byteorder_lite",
+            "package_key": "byteorder-lite-0.1.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "moxcms",
+            "package_key": "moxcms-0.8.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "num_traits",
+            "package_key": "num-traits-0.2.19",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "png",
+            "package_key": "png-0.18.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tiff",
+            "package_key": "tiff-0.11.3",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "bmp",
+          "png",
+          "tiff"
+        ]
+      },
+      "miniz_oxide-0.8.9": {
+        "runtime_dependencies": [
+          {
+            "name": "adler2",
+            "package_key": "adler2-2.0.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "simd_adler32",
+            "package_key": "simd-adler32-0.3.9",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "simd",
+          "simd-adler32",
+          "with-alloc"
+        ]
+      },
+      "moxcms-0.8.1": {
+        "runtime_dependencies": [
+          {
+            "name": "num_traits",
+            "package_key": "num-traits-0.2.19",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "pxfm",
+            "package_key": "pxfm-0.1.29",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "avx",
+          "avx_luts",
+          "avx_shaper_fixed_point_paths",
+          "avx_shaper_paths",
+          "default",
+          "lut",
+          "neon",
+          "neon_luts",
+          "neon_shaper_fixed_point_paths",
+          "neon_shaper_paths",
+          "sse",
+          "sse_luts",
+          "sse_shaper_fixed_point_paths",
+          "sse_shaper_paths"
+        ]
+      },
+      "num-traits-0.2.19": {
+        "runtime_dependencies": [],
+        "build_dependencies": [
+          {
+            "name": "autocfg",
+            "package_key": "autocfg-1.5.1",
+            "kind": "build",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          }
+        ],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "once_cell-1.21.4": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "default",
+          "race",
+          "std"
+        ]
+      },
+      "pin-project-lite-0.2.17": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "png-0.18.1": {
+        "runtime_dependencies": [
+          {
+            "name": "bitflags",
+            "package_key": "bitflags-2.13.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "crc32fast",
+            "package_key": "crc32fast-1.5.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "fdeflate",
+            "package_key": "fdeflate-0.3.7",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "flate2",
+            "package_key": "flate2-1.1.9",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "miniz_oxide",
+            "package_key": "miniz_oxide-0.8.9",
+            "kind": "normal",
+            "features": [
+              "simd"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "proc-macro2-1.0.106": {
+        "runtime_dependencies": [
+          {
+            "name": "unicode_ident",
+            "package_key": "unicode-ident-1.0.24",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "proc-macro"
+        ]
+      },
+      "pxfm-0.1.29": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "quick-error-2.0.1": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "quote-1.0.45": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "proc-macro"
+        ]
+      },
+      "simd-adler32-0.3.9": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "const-generics",
+          "default",
+          "std"
+        ]
+      },
+      "syn-2.0.118": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "unicode_ident",
+            "package_key": "unicode-ident-1.0.24",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "clone-impls",
+          "default",
+          "derive",
+          "extra-traits",
+          "full",
+          "parsing",
+          "printing",
+          "proc-macro",
+          "visit-mut"
+        ]
+      },
+      "thiserror-2.0.18": {
+        "runtime_dependencies": [
+          {
+            "name": "thiserror_impl",
+            "package_key": "thiserror-impl-2.0.18",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "host"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "std"
+        ]
+      },
+      "thiserror-impl-2.0.18": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.118",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "tiff-0.11.3": {
+        "runtime_dependencies": [
+          {
+            "name": "fax34",
+            "package_key": "fax-0.2.7",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "flate2",
+            "package_key": "flate2-1.1.9",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "half",
+            "package_key": "half-2.7.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quick_error",
+            "package_key": "quick-error-2.0.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "weezl",
+            "package_key": "weezl-0.1.12",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "zune_jpeg",
+            "package_key": "zune-jpeg-0.5.15",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "deflate",
+          "fax",
+          "jpeg",
+          "lzw"
+        ]
+      },
+      "tokio-1.52.3": {
+        "runtime_dependencies": [
+          {
+            "name": "pin_project_lite",
+            "package_key": "pin-project-lite-0.2.17",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tokio_macros",
+            "package_key": "tokio-macros-2.7.0",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "host"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "macros",
+          "rt",
+          "sync",
+          "test-util",
+          "time",
+          "tokio-macros"
+        ]
+      },
+      "tokio-macros-2.7.0": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.118",
+            "kind": "normal",
+            "features": [
+              "full"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "tracing-0.1.44": {
+        "runtime_dependencies": [
+          {
+            "name": "pin_project_lite",
+            "package_key": "pin-project-lite-0.2.17",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "tracing_attributes",
+            "package_key": "tracing-attributes-0.1.31",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "tracing_core",
+            "package_key": "tracing-core-0.1.36",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "attributes",
+          "default",
+          "std",
+          "tracing-attributes"
+        ]
+      },
+      "tracing-attributes-0.1.31": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.118",
+            "kind": "normal",
+            "features": [
+              "clone-impls",
+              "extra-traits",
+              "full",
+              "parsing",
+              "printing",
+              "proc-macro",
+              "visit-mut"
+            ],
+            "uses_default_features": false,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "tracing-core-0.1.36": {
+        "runtime_dependencies": [
+          {
+            "name": "once_cell",
+            "package_key": "once_cell-1.21.4",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "once_cell",
+          "std"
+        ]
+      },
+      "unicode-ident-1.0.24": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": []
+      },
+      "weezl-0.1.12": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "alloc",
+          "default",
+          "std"
+        ]
+      },
+      "zerocopy-0.8.52": {
+        "runtime_dependencies": [
+          {
+            "name": "zerocopy_derive",
+            "package_key": "zerocopy-derive-0.8.52",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": true,
+            "target": null,
+            "tree": "host"
+          },
+          {
+            "name": "zerocopy_derive",
+            "package_key": "zerocopy-derive-0.8.52",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": "cfg(any())",
+            "tree": "host"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "derive",
+          "simd",
+          "zerocopy-derive"
+        ]
+      },
+      "zerocopy-derive-0.8.52": {
+        "runtime_dependencies": [
+          {
+            "name": "proc_macro2",
+            "package_key": "proc-macro2-1.0.106",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "quote",
+            "package_key": "quote-1.0.45",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          },
+          {
+            "name": "syn",
+            "package_key": "syn-2.0.118",
+            "kind": "normal",
+            "features": [
+              "full"
+            ],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": []
+      },
+      "zune-core-0.5.1": {
+        "runtime_dependencies": [],
+        "build_dependencies": [],
+        "features": [
+          "std"
+        ]
+      },
+      "zune-jpeg-0.5.15": {
+        "runtime_dependencies": [
+          {
+            "name": "zune_core",
+            "package_key": "zune-core-0.5.1",
+            "kind": "normal",
+            "features": [],
+            "uses_default_features": true,
+            "optional": false,
+            "target": null,
+            "tree": "target"
+          }
+        ],
+        "build_dependencies": [],
+        "features": [
+          "default",
+          "neon",
+          "std",
+          "x86"
+        ]
+      }
+    },
+    "targets": {
+      "aarch64-apple-darwin": {
+        "overrides": {
+          "arboard-3.6.1": {
+            "runtime_dependencies": [
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "tiff"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "bmp",
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "objc2_app_kit",
+                "package_key": "objc2-app-kit-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "NSImage",
+                  "NSPasteboard",
+                  "NSPasteboardItem",
+                  "objc2-core-graphics",
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "objc2_core_foundation",
+                "package_key": "objc2-core-foundation-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "CFCGTypes",
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "objc2_core_graphics",
+                "package_key": "objc2-core-graphics-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "CGColorSpace",
+                  "CGDataProvider",
+                  "CGImage",
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "objc2_foundation",
+                "package_key": "objc2-foundation-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "NSArray",
+                  "NSEnumerator",
+                  "NSGeometry",
+                  "NSString",
+                  "NSValue",
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "core-graphics",
+              "default",
+              "image",
+              "image-data",
+              "windows-sys"
+            ]
+          },
+          "dispatch2-0.3.1": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "objc2"
+            ]
+          },
+          "objc2-0.6.4": {
+            "runtime_dependencies": [
+              {
+                "name": "objc2_encode",
+                "package_key": "objc2-encode-4.1.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "std"
+            ]
+          },
+          "objc2-app-kit-0.3.2": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2_core_graphics",
+                "package_key": "objc2-core-graphics-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "CGColor",
+                  "CGColorSpace",
+                  "CGContext",
+                  "CGDirectDisplay",
+                  "CGEventTypes",
+                  "CGFont",
+                  "CGImage",
+                  "CGPath",
+                  "objc2"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_vendor = \"apple\")",
+                "tree": "target"
+              },
+              {
+                "name": "objc2_foundation",
+                "package_key": "objc2-foundation-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "alloc"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "NSImage",
+              "NSPasteboard",
+              "NSPasteboardItem",
+              "alloc",
+              "bitflags",
+              "objc2-core-graphics",
+              "std"
+            ]
+          },
+          "objc2-core-foundation-0.3.2": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "CFArray",
+              "CFAttributedString",
+              "CFCGTypes",
+              "CFCalendar",
+              "CFCharacterSet",
+              "CFData",
+              "CFDate",
+              "CFDictionary",
+              "CFError",
+              "CFFileSecurity",
+              "CFLocale",
+              "CFMachPort",
+              "CFMessagePort",
+              "CFRunLoop",
+              "CFSet",
+              "CFStream",
+              "CFURL",
+              "alloc",
+              "bitflags",
+              "objc2",
+              "std"
+            ]
+          },
+          "objc2-core-graphics-0.3.2": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2_core_foundation",
+                "package_key": "objc2-core-foundation-0.3.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "CGColor",
+              "CGColorSpace",
+              "CGContext",
+              "CGDataProvider",
+              "CGDirectDisplay",
+              "CGEventTypes",
+              "CGFont",
+              "CGImage",
+              "CGPath",
+              "alloc",
+              "bitflags",
+              "objc2",
+              "std"
+            ]
+          },
+          "objc2-encode-4.1.0": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "std"
+            ]
+          },
+          "objc2-foundation-0.3.2": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2_core_foundation",
+                "package_key": "objc2-core-foundation-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "CFArray",
+                  "CFAttributedString",
+                  "CFCGTypes",
+                  "CFCalendar",
+                  "CFCharacterSet",
+                  "CFData",
+                  "CFDate",
+                  "CFDictionary",
+                  "CFError",
+                  "CFFileSecurity",
+                  "CFLocale",
+                  "CFMachPort",
+                  "CFMessagePort",
+                  "CFRunLoop",
+                  "CFSet",
+                  "CFStream",
+                  "CFURL",
+                  "objc2"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "NSArray",
+              "NSBundle",
+              "NSCoder",
+              "NSData",
+              "NSDictionary",
+              "NSEnumerator",
+              "NSError",
+              "NSFileWrapper",
+              "NSGeometry",
+              "NSItemProvider",
+              "NSLocale",
+              "NSObject",
+              "NSSet",
+              "NSString",
+              "NSURL",
+              "NSValue",
+              "alloc",
+              "bitflags",
+              "objc2-core-foundation",
+              "std"
+            ]
+          },
+          "objc2-io-surface-0.3.2": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "IOSurfaceRef",
+              "bitflags",
+              "objc2"
+            ]
+          }
+        }
+      },
+      "aarch64-unknown-linux-gnu": {
+        "overrides": {
+          "arboard-3.6.1": {
+            "runtime_dependencies": [
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "tiff"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "bmp",
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "log",
+                "package_key": "log-0.4.33",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "log",
+                "package_key": "log-0.4.33",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "parking_lot",
+                "package_key": "parking_lot-0.12.5",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "percent_encoding",
+                "package_key": "percent-encoding-2.3.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "x11rb",
+                "package_key": "x11rb-0.13.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "core-graphics",
+              "default",
+              "image",
+              "image-data",
+              "windows-sys"
+            ]
+          },
+          "errno-0.3.14": {
+            "runtime_dependencies": [
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"hermit\")",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"wasi\")",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(unix)",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "std"
+            ]
+          },
+          "gethostname-1.1.0": {
+            "runtime_dependencies": [
+              {
+                "name": "rustix",
+                "package_key": "rustix-1.1.4",
+                "kind": "normal",
+                "features": [
+                  "system"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(not(windows))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "libc-0.2.186": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "default",
+              "std"
+            ]
+          },
+          "linux-raw-sys-0.12.1": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "auxvec",
+              "elf",
+              "errno",
+              "general",
+              "if_ether",
+              "ioctl",
+              "net",
+              "netlink",
+              "no_std",
+              "system",
+              "xdp"
+            ]
+          },
+          "lock_api-0.4.14": {
+            "runtime_dependencies": [
+              {
+                "name": "scopeguard",
+                "package_key": "scopeguard-1.2.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "atomic_usize",
+              "default"
+            ]
+          },
+          "log-0.4.33": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "parking_lot-0.12.5": {
+            "runtime_dependencies": [
+              {
+                "name": "lock_api",
+                "package_key": "lock_api-0.4.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "parking_lot_core",
+                "package_key": "parking_lot_core-0.9.12",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "default"
+            ]
+          },
+          "parking_lot_core-0.9.12": {
+            "runtime_dependencies": [
+              {
+                "name": "cfg_if",
+                "package_key": "cfg-if-1.0.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(unix)",
+                "tree": "target"
+              },
+              {
+                "name": "smallvec",
+                "package_key": "smallvec-1.15.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "percent-encoding-2.3.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "std"
+            ]
+          },
+          "rustix-1.1.4": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [
+                  "general",
+                  "ioctl",
+                  "no_std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(any(target_os = \"linux\", target_os = \"android\"), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [
+                  "auxvec",
+                  "elf",
+                  "errno",
+                  "general",
+                  "ioctl",
+                  "no_std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "event",
+              "fs",
+              "net",
+              "std",
+              "system"
+            ]
+          },
+          "scopeguard-1.2.0": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "smallvec-1.15.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "x11rb-0.13.2": {
+            "runtime_dependencies": [
+              {
+                "name": "gethostname",
+                "package_key": "gethostname-1.1.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "rustix",
+                "package_key": "rustix-1.1.4",
+                "kind": "normal",
+                "features": [
+                  "event",
+                  "fs",
+                  "net",
+                  "std",
+                  "system"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "x11rb_protocol",
+                "package_key": "x11rb-protocol-0.13.2",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "x11rb-protocol-0.13.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "std"
+            ]
+          }
+        }
+      },
+      "aarch64-unknown-linux-musl": {
+        "overrides": {
+          "arboard-3.6.1": {
+            "runtime_dependencies": [
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "tiff"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "bmp",
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "log",
+                "package_key": "log-0.4.33",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "log",
+                "package_key": "log-0.4.33",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "parking_lot",
+                "package_key": "parking_lot-0.12.5",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "percent_encoding",
+                "package_key": "percent-encoding-2.3.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "x11rb",
+                "package_key": "x11rb-0.13.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "core-graphics",
+              "default",
+              "image",
+              "image-data",
+              "windows-sys"
+            ]
+          },
+          "errno-0.3.14": {
+            "runtime_dependencies": [
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"hermit\")",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"wasi\")",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(unix)",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "std"
+            ]
+          },
+          "gethostname-1.1.0": {
+            "runtime_dependencies": [
+              {
+                "name": "rustix",
+                "package_key": "rustix-1.1.4",
+                "kind": "normal",
+                "features": [
+                  "system"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(not(windows))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "libc-0.2.186": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "default",
+              "std"
+            ]
+          },
+          "linux-raw-sys-0.12.1": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "auxvec",
+              "elf",
+              "errno",
+              "general",
+              "if_ether",
+              "ioctl",
+              "net",
+              "netlink",
+              "no_std",
+              "system",
+              "xdp"
+            ]
+          },
+          "lock_api-0.4.14": {
+            "runtime_dependencies": [
+              {
+                "name": "scopeguard",
+                "package_key": "scopeguard-1.2.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "atomic_usize",
+              "default"
+            ]
+          },
+          "log-0.4.33": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "parking_lot-0.12.5": {
+            "runtime_dependencies": [
+              {
+                "name": "lock_api",
+                "package_key": "lock_api-0.4.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "parking_lot_core",
+                "package_key": "parking_lot_core-0.9.12",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "default"
+            ]
+          },
+          "parking_lot_core-0.9.12": {
+            "runtime_dependencies": [
+              {
+                "name": "cfg_if",
+                "package_key": "cfg-if-1.0.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(unix)",
+                "tree": "target"
+              },
+              {
+                "name": "smallvec",
+                "package_key": "smallvec-1.15.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "percent-encoding-2.3.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "std"
+            ]
+          },
+          "rustix-1.1.4": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [
+                  "general",
+                  "ioctl",
+                  "no_std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(any(target_os = \"linux\", target_os = \"android\"), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [
+                  "auxvec",
+                  "elf",
+                  "errno",
+                  "general",
+                  "ioctl",
+                  "no_std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "event",
+              "fs",
+              "net",
+              "std",
+              "system"
+            ]
+          },
+          "scopeguard-1.2.0": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "smallvec-1.15.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "x11rb-0.13.2": {
+            "runtime_dependencies": [
+              {
+                "name": "gethostname",
+                "package_key": "gethostname-1.1.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "rustix",
+                "package_key": "rustix-1.1.4",
+                "kind": "normal",
+                "features": [
+                  "event",
+                  "fs",
+                  "net",
+                  "std",
+                  "system"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "x11rb_protocol",
+                "package_key": "x11rb-protocol-0.13.2",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "x11rb-protocol-0.13.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "std"
+            ]
+          }
+        }
+      },
+      "x86_64-apple-darwin": {
+        "overrides": {
+          "arboard-3.6.1": {
+            "runtime_dependencies": [
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "tiff"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "bmp",
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "objc2_app_kit",
+                "package_key": "objc2-app-kit-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "NSImage",
+                  "NSPasteboard",
+                  "NSPasteboardItem",
+                  "objc2-core-graphics",
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "objc2_core_foundation",
+                "package_key": "objc2-core-foundation-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "CFCGTypes",
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "objc2_core_graphics",
+                "package_key": "objc2-core-graphics-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "CGColorSpace",
+                  "CGDataProvider",
+                  "CGImage",
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "objc2_foundation",
+                "package_key": "objc2-foundation-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "NSArray",
+                  "NSEnumerator",
+                  "NSGeometry",
+                  "NSString",
+                  "NSValue",
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "core-graphics",
+              "default",
+              "image",
+              "image-data",
+              "windows-sys"
+            ]
+          },
+          "dispatch2-0.3.1": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "objc2"
+            ]
+          },
+          "objc2-0.6.4": {
+            "runtime_dependencies": [
+              {
+                "name": "objc2_encode",
+                "package_key": "objc2-encode-4.1.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "std"
+            ]
+          },
+          "objc2-app-kit-0.3.2": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2_core_graphics",
+                "package_key": "objc2-core-graphics-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "CGColor",
+                  "CGColorSpace",
+                  "CGContext",
+                  "CGDirectDisplay",
+                  "CGEventTypes",
+                  "CGFont",
+                  "CGImage",
+                  "CGPath",
+                  "objc2"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_vendor = \"apple\")",
+                "tree": "target"
+              },
+              {
+                "name": "objc2_foundation",
+                "package_key": "objc2-foundation-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "alloc"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "NSImage",
+              "NSPasteboard",
+              "NSPasteboardItem",
+              "alloc",
+              "bitflags",
+              "objc2-core-graphics",
+              "std"
+            ]
+          },
+          "objc2-core-foundation-0.3.2": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "CFArray",
+              "CFAttributedString",
+              "CFCGTypes",
+              "CFCalendar",
+              "CFCharacterSet",
+              "CFData",
+              "CFDate",
+              "CFDictionary",
+              "CFError",
+              "CFFileSecurity",
+              "CFLocale",
+              "CFMachPort",
+              "CFMessagePort",
+              "CFRunLoop",
+              "CFSet",
+              "CFStream",
+              "CFURL",
+              "alloc",
+              "bitflags",
+              "objc2",
+              "std"
+            ]
+          },
+          "objc2-core-graphics-0.3.2": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2_core_foundation",
+                "package_key": "objc2-core-foundation-0.3.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "CGColor",
+              "CGColorSpace",
+              "CGContext",
+              "CGDataProvider",
+              "CGDirectDisplay",
+              "CGEventTypes",
+              "CGFont",
+              "CGImage",
+              "CGPath",
+              "alloc",
+              "bitflags",
+              "objc2",
+              "std"
+            ]
+          },
+          "objc2-encode-4.1.0": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "std"
+            ]
+          },
+          "objc2-foundation-0.3.2": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2_core_foundation",
+                "package_key": "objc2-core-foundation-0.3.2",
+                "kind": "normal",
+                "features": [
+                  "CFArray",
+                  "CFAttributedString",
+                  "CFCGTypes",
+                  "CFCalendar",
+                  "CFCharacterSet",
+                  "CFData",
+                  "CFDate",
+                  "CFDictionary",
+                  "CFError",
+                  "CFFileSecurity",
+                  "CFLocale",
+                  "CFMachPort",
+                  "CFMessagePort",
+                  "CFRunLoop",
+                  "CFSet",
+                  "CFStream",
+                  "CFURL",
+                  "objc2"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "NSArray",
+              "NSBundle",
+              "NSCoder",
+              "NSData",
+              "NSDictionary",
+              "NSEnumerator",
+              "NSError",
+              "NSFileWrapper",
+              "NSGeometry",
+              "NSItemProvider",
+              "NSLocale",
+              "NSObject",
+              "NSSet",
+              "NSString",
+              "NSURL",
+              "NSValue",
+              "alloc",
+              "bitflags",
+              "objc2-core-foundation",
+              "std"
+            ]
+          },
+          "objc2-io-surface-0.3.2": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "objc2",
+                "package_key": "objc2-0.6.4",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "IOSurfaceRef",
+              "bitflags",
+              "objc2"
+            ]
+          }
+        }
+      },
+      "x86_64-unknown-linux-gnu": {
+        "overrides": {
+          "arboard-3.6.1": {
+            "runtime_dependencies": [
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "tiff"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "bmp",
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "log",
+                "package_key": "log-0.4.33",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "log",
+                "package_key": "log-0.4.33",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "parking_lot",
+                "package_key": "parking_lot-0.12.5",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "percent_encoding",
+                "package_key": "percent-encoding-2.3.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "x11rb",
+                "package_key": "x11rb-0.13.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "core-graphics",
+              "default",
+              "image",
+              "image-data",
+              "windows-sys"
+            ]
+          },
+          "errno-0.3.14": {
+            "runtime_dependencies": [
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"hermit\")",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"wasi\")",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(unix)",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "std"
+            ]
+          },
+          "gethostname-1.1.0": {
+            "runtime_dependencies": [
+              {
+                "name": "rustix",
+                "package_key": "rustix-1.1.4",
+                "kind": "normal",
+                "features": [
+                  "system"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(not(windows))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "libc-0.2.186": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "default",
+              "std"
+            ]
+          },
+          "linux-raw-sys-0.12.1": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "auxvec",
+              "elf",
+              "errno",
+              "general",
+              "if_ether",
+              "ioctl",
+              "net",
+              "netlink",
+              "no_std",
+              "system",
+              "xdp"
+            ]
+          },
+          "lock_api-0.4.14": {
+            "runtime_dependencies": [
+              {
+                "name": "scopeguard",
+                "package_key": "scopeguard-1.2.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "atomic_usize",
+              "default"
+            ]
+          },
+          "log-0.4.33": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "parking_lot-0.12.5": {
+            "runtime_dependencies": [
+              {
+                "name": "lock_api",
+                "package_key": "lock_api-0.4.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "parking_lot_core",
+                "package_key": "parking_lot_core-0.9.12",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "default"
+            ]
+          },
+          "parking_lot_core-0.9.12": {
+            "runtime_dependencies": [
+              {
+                "name": "cfg_if",
+                "package_key": "cfg-if-1.0.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(unix)",
+                "tree": "target"
+              },
+              {
+                "name": "smallvec",
+                "package_key": "smallvec-1.15.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "percent-encoding-2.3.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "std"
+            ]
+          },
+          "rustix-1.1.4": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [
+                  "general",
+                  "ioctl",
+                  "no_std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(any(target_os = \"linux\", target_os = \"android\"), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [
+                  "auxvec",
+                  "elf",
+                  "errno",
+                  "general",
+                  "ioctl",
+                  "no_std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "event",
+              "fs",
+              "net",
+              "std",
+              "system"
+            ]
+          },
+          "scopeguard-1.2.0": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "smallvec-1.15.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "x11rb-0.13.2": {
+            "runtime_dependencies": [
+              {
+                "name": "gethostname",
+                "package_key": "gethostname-1.1.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "rustix",
+                "package_key": "rustix-1.1.4",
+                "kind": "normal",
+                "features": [
+                  "event",
+                  "fs",
+                  "net",
+                  "std",
+                  "system"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "x11rb_protocol",
+                "package_key": "x11rb-protocol-0.13.2",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "x11rb-protocol-0.13.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "std"
+            ]
+          }
+        }
+      },
+      "x86_64-unknown-linux-musl": {
+        "overrides": {
+          "arboard-3.6.1": {
+            "runtime_dependencies": [
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "tiff"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(target_os = \"macos\")",
+                "tree": "target"
+              },
+              {
+                "name": "image",
+                "package_key": "image-0.25.10",
+                "kind": "normal",
+                "features": [
+                  "bmp",
+                  "png"
+                ],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "log",
+                "package_key": "log-0.4.33",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "log",
+                "package_key": "log-0.4.33",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "parking_lot",
+                "package_key": "parking_lot-0.12.5",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "percent_encoding",
+                "package_key": "percent-encoding-2.3.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "x11rb",
+                "package_key": "x11rb-0.13.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(all(unix, not(any(target_os = \"macos\", target_os = \"android\", target_os = \"emscripten\"))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "core-graphics",
+              "default",
+              "image",
+              "image-data",
+              "windows-sys"
+            ]
+          },
+          "errno-0.3.14": {
+            "runtime_dependencies": [
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"hermit\")",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(target_os = \"wasi\")",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(unix)",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "std"
+            ]
+          },
+          "gethostname-1.1.0": {
+            "runtime_dependencies": [
+              {
+                "name": "rustix",
+                "package_key": "rustix-1.1.4",
+                "kind": "normal",
+                "features": [
+                  "system"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(not(windows))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "libc-0.2.186": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "default",
+              "std"
+            ]
+          },
+          "linux-raw-sys-0.12.1": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "auxvec",
+              "elf",
+              "errno",
+              "general",
+              "if_ether",
+              "ioctl",
+              "net",
+              "netlink",
+              "no_std",
+              "system",
+              "xdp"
+            ]
+          },
+          "lock_api-0.4.14": {
+            "runtime_dependencies": [
+              {
+                "name": "scopeguard",
+                "package_key": "scopeguard-1.2.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "atomic_usize",
+              "default"
+            ]
+          },
+          "log-0.4.33": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "parking_lot-0.12.5": {
+            "runtime_dependencies": [
+              {
+                "name": "lock_api",
+                "package_key": "lock_api-0.4.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "parking_lot_core",
+                "package_key": "parking_lot_core-0.9.12",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "default"
+            ]
+          },
+          "parking_lot_core-0.9.12": {
+            "runtime_dependencies": [
+              {
+                "name": "cfg_if",
+                "package_key": "cfg-if-1.0.4",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": "cfg(unix)",
+                "tree": "target"
+              },
+              {
+                "name": "smallvec",
+                "package_key": "smallvec-1.15.2",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "percent-encoding-2.3.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "default",
+              "std"
+            ]
+          },
+          "rustix-1.1.4": {
+            "runtime_dependencies": [
+              {
+                "name": "bitflags",
+                "package_key": "bitflags-2.13.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc_errno",
+                "package_key": "errno-0.3.14",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(windows)",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": true,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              },
+              {
+                "name": "libc",
+                "package_key": "libc-0.2.186",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(windows), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [
+                  "general",
+                  "ioctl",
+                  "no_std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(any(target_os = \"linux\", target_os = \"android\"), any(rustix_use_libc, miri, not(all(target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\")))))))",
+                "tree": "target"
+              },
+              {
+                "name": "linux_raw_sys",
+                "package_key": "linux-raw-sys-0.12.1",
+                "kind": "normal",
+                "features": [
+                  "auxvec",
+                  "elf",
+                  "errno",
+                  "general",
+                  "ioctl",
+                  "no_std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": "cfg(all(not(rustix_use_libc), not(miri), target_os = \"linux\", any(target_endian = \"little\", any(target_arch = \"s390x\", target_arch = \"powerpc\")), any(target_arch = \"arm\", all(target_arch = \"aarch64\", target_pointer_width = \"64\"), target_arch = \"riscv64\", all(rustix_use_experimental_asm, target_arch = \"powerpc\"), all(rustix_use_experimental_asm, target_arch = \"powerpc64\"), all(rustix_use_experimental_asm, target_arch = \"s390x\"), all(rustix_use_experimental_asm, target_arch = \"mips\"), all(rustix_use_experimental_asm, target_arch = \"mips32r6\"), all(rustix_use_experimental_asm, target_arch = \"mips64\"), all(rustix_use_experimental_asm, target_arch = \"mips64r6\"), target_arch = \"x86\", all(target_arch = \"x86_64\", target_pointer_width = \"64\"))))",
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": [
+              "alloc",
+              "event",
+              "fs",
+              "net",
+              "std",
+              "system"
+            ]
+          },
+          "scopeguard-1.2.0": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "smallvec-1.15.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": []
+          },
+          "x11rb-0.13.2": {
+            "runtime_dependencies": [
+              {
+                "name": "gethostname",
+                "package_key": "gethostname-1.1.0",
+                "kind": "normal",
+                "features": [],
+                "uses_default_features": true,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "rustix",
+                "package_key": "rustix-1.1.4",
+                "kind": "normal",
+                "features": [
+                  "event",
+                  "fs",
+                  "net",
+                  "std",
+                  "system"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              },
+              {
+                "name": "x11rb_protocol",
+                "package_key": "x11rb-protocol-0.13.2",
+                "kind": "normal",
+                "features": [
+                  "std"
+                ],
+                "uses_default_features": false,
+                "optional": false,
+                "target": null,
+                "tree": "target"
+              }
+            ],
+            "build_dependencies": [],
+            "features": []
+          },
+          "x11rb-protocol-0.13.2": {
+            "runtime_dependencies": [],
+            "build_dependencies": [],
+            "features": [
+              "std"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "per_crate": {
+    "adler2-2.0.1": {
+      "edition": "2021"
+    },
+    "arboard-3.6.1": {
+      "edition": "2021"
+    },
+    "autocfg-1.5.1": {
+      "edition": "2015"
+    },
+    "bitflags-2.13.0": {
+      "edition": "2021"
+    },
+    "bytemuck-1.25.0": {
+      "edition": "2018"
+    },
+    "byteorder-lite-0.1.0": {
+      "edition": "2021"
+    },
+    "cfg-if-1.0.4": {
+      "edition": "2018"
+    },
+    "crc32fast-1.5.0": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "dispatch2-0.3.1": {
+      "edition": "2021"
+    },
+    "errno-0.3.14": {
+      "edition": "2018"
+    },
+    "fax-0.2.7": {
+      "edition": "2018"
+    },
+    "fdeflate-0.3.7": {
+      "edition": "2021"
+    },
+    "flate2-1.1.9": {
+      "edition": "2018"
+    },
+    "gethostname-1.1.0": {
+      "edition": "2021"
+    },
+    "half-2.7.1": {
+      "edition": "2021"
+    },
+    "hasami-0.1.2": {
+      "edition": "2024",
+      "lib_target": {
+        "name": "hasami",
+        "path": "src/lib.rs"
+      }
+    },
+    "image-0.25.10": {
+      "edition": "2021"
+    },
+    "libc-0.2.186": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "linux-raw-sys-0.12.1": {
+      "edition": "2021"
+    },
+    "lock_api-0.4.14": {
+      "edition": "2021"
+    },
+    "log-0.4.33": {
+      "edition": "2021"
+    },
+    "miniz_oxide-0.8.9": {
+      "edition": "2021"
+    },
+    "moxcms-0.8.1": {
+      "edition": "2024"
+    },
+    "num-traits-0.2.19": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "objc2-0.6.4": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "objc2-app-kit-0.3.2": {
+      "edition": "2021"
+    },
+    "objc2-core-foundation-0.3.2": {
+      "edition": "2021"
+    },
+    "objc2-core-graphics-0.3.2": {
+      "edition": "2021"
+    },
+    "objc2-encode-4.1.0": {
+      "edition": "2021"
+    },
+    "objc2-foundation-0.3.2": {
+      "edition": "2021"
+    },
+    "objc2-io-surface-0.3.2": {
+      "edition": "2021"
+    },
+    "once_cell-1.21.4": {
+      "edition": "2021"
+    },
+    "parking_lot-0.12.5": {
+      "edition": "2021"
+    },
+    "parking_lot_core-0.9.12": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "percent-encoding-2.3.2": {
+      "edition": "2018"
+    },
+    "pin-project-lite-0.2.17": {
+      "edition": "2018"
+    },
+    "png-0.18.1": {
+      "edition": "2021"
+    },
+    "proc-macro2-1.0.106": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "pxfm-0.1.29": {
+      "edition": "2024"
+    },
+    "quick-error-2.0.1": {
+      "edition": "2018"
+    },
+    "quote-1.0.45": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "rustix-1.1.4": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "scopeguard-1.2.0": {
+      "edition": "2015"
+    },
+    "simd-adler32-0.3.9": {
+      "edition": "2018"
+    },
+    "smallvec-1.15.2": {
+      "edition": "2018"
+    },
+    "syn-2.0.118": {
+      "edition": "2021"
+    },
+    "thiserror-2.0.18": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "thiserror-impl-2.0.18": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "tiff-0.11.3": {
+      "edition": "2021"
+    },
+    "tokio-1.52.3": {
+      "edition": "2021"
+    },
+    "tokio-macros-2.7.0": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "tracing-0.1.44": {
+      "edition": "2018"
+    },
+    "tracing-attributes-0.1.31": {
+      "edition": "2018",
+      "proc_macro": true
+    },
+    "tracing-core-0.1.36": {
+      "edition": "2018"
+    },
+    "unicode-ident-1.0.24": {
+      "edition": "2021"
+    },
+    "weezl-0.1.12": {
+      "edition": "2018",
+      "binaries": [
+        {
+          "name": "lzw",
+          "path": "bin/lzw.rs"
+        }
+      ]
+    },
+    "x11rb-0.13.2": {
+      "edition": "2021"
+    },
+    "x11rb-protocol-0.13.2": {
+      "edition": "2021"
+    },
+    "zerocopy-0.8.52": {
+      "edition": "2021",
+      "build_script": "build.rs"
+    },
+    "zerocopy-derive-0.8.52": {
+      "edition": "2021",
+      "proc_macro": true
+    },
+    "zune-core-0.5.1": {
+      "edition": "2021"
+    },
+    "zune-jpeg-0.5.15": {
+      "edition": "2021"
+    }
+  },
+  "git_nar_sha256": {},
+  "flake_metadata": {}
+}
